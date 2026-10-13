@@ -769,3 +769,15 @@ section > div > .etiqueta {
     @keyframes entrada-imagen { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: none; } }
     @keyframes entrada-detalle { from { opacity: 0; transform: rotate(0) translateY(20px); } to { opacity: 1; transform: rotate(8deg); } }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+    .animaciones-listas.movimiento-scroll .revelar.visible {
+        opacity: var(--opacidad-scroll, 1);
+        transform: translateY(var(--traslacion-scroll, 0px));
+        transition: opacity 120ms linear, transform 120ms linear;
+    }
+    .animaciones-listas.movimiento-scroll .revelar:focus-within {
+        opacity: 1;
+        transform: none;
+    }
+}

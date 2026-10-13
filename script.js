@@ -102,6 +102,7 @@ filtros.forEach((filtro) =>
         const unidad = cantidad === 1 ? "fotografía" : "fotografías";
         document.querySelector("#resumen-galeria").textContent =
             `${cantidad} ${unidad} · ${nombre}`;
+        if (typeof window.requestAnimationFrame === "function") pedirFotogramaScroll();
     }),
 );
 document.querySelector(".filtros").hidden = false;
@@ -229,7 +230,7 @@ botonCopiar.addEventListener("click", async () => {
 });
 document.body.classList.add("mejorado");
 
-// 6. Animación al entrar en pantalla; se desactiva con movimiento reducido.
+// 6. Observación de entrada y salida; se desactiva con movimiento reducido.
 const movimientoReducido = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
 );
@@ -249,7 +250,8 @@ function ajustarAnimaciones() {
             entradas.forEach((entrada) => {
                 if (entrada.isIntersecting) {
                     entrada.target.classList.add("visible");
-                    observador.unobserve(entrada.target);
+                    } else {
+                    entrada.target.classList.remove("visible");
                 }
             });
         },
@@ -275,3 +277,28 @@ function actualizarComparador() {
 balanceEdicion.addEventListener("input", actualizarComparador);
 actualizarComparador();
 document.querySelector(".control-comparador").hidden = false;
+
+// 8. Progreso del scroll: entrar y salir recupera el movimiento de forma suave.
+let fotogramaScroll = null;
+function actualizarMovimientoScroll() {
+    fotogramaScroll = null;
+    if (movimientoReducido.matches) return;
+    const alto = window.innerHeight;
+    elementosRevelar.forEach((elemento) => {
+        const marco = elemento.getBoundingClientRect();
+        const distancia = Math.max(1, Math.min(marco.height, alto) * 0.45);
+        const progreso = Math.max(0, Math.min(1, (alto - marco.top) / distancia, marco.bottom / distancia));
+        elemento.style.setProperty("--opacidad-scroll", progreso.toFixed(3));
+        elemento.style.setProperty("--traslacion-scroll", `${((1 - progreso) * 18).toFixed(2)}px`);
+    });
+}
+function pedirFotogramaScroll() {
+    if (fotogramaScroll === null) fotogramaScroll = window.requestAnimationFrame(actualizarMovimientoScroll);
+}
+if (typeof window.requestAnimationFrame === "function") {
+    document.body.classList.add("movimiento-scroll");
+    window.addEventListener("scroll", pedirFotogramaScroll, { passive: true });
+    window.addEventListener("resize", pedirFotogramaScroll);
+    movimientoReducido.addEventListener("change", pedirFotogramaScroll);
+    pedirFotogramaScroll();
+}
