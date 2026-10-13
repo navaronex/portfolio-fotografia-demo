@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>Julio · Fotografía de eventos</title>
+        <meta
+            name="description"
+            content="Boceto del portfolio de Julio: bodas, bautizos y celebraciones."
+        >
+        <meta name="robots" content="noindex, nofollow" >
+        <link rel="stylesheet" href="./styles.css" >
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <a class="saltar-contenido" href="#inicio">Saltar al contenido</a>
+        <header class="encabezado">
+            <a
+                class="marca"
+                href="#inicio"
+                aria-label="Julio, fotografía. Inicio"
+                >Julio<span>.</span><small>FOTOGRAFÍA</small></a
+            >
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+                hidden
+            >
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="menu-principal" aria-label="Navegación principal">
+                <a href="#trabajos">Mis trabajos</a>
+                <a href="#sobre-mi">Mi mirada</a>
+                <a href="#contacto">Hablemos</a>
+            </nav>
+        </header>
+
+        <main>
+            <section
+                class="presentacion"
+                id="inicio"
+                aria-labelledby="titulo-presentacion"
+                tabindex="-1"
+            >
+                <div class="presentacion-texto">
+                    <p class="etiqueta">BODAS · BAUTIZOS · CELEBRACIONES</p>
+                    <h1 id="titulo-presentacion">
+                        Lo que se vive.<br ><em>Lo que se queda.</em>
+                    </h1>
+                    <p>
+                        Una mirada cercana a tus días más importantes.<br >Fotografías
+                        para volver a sentirlos.
+                    </p>
+                    <a class="boton" href="#trabajos">Descubre las historias</a>
+                </div>
+                <div class="presentacion-imagen">
+                    <img
+                        src="imagenes/boda.jpg"
+                        width="612"
+                        height="408"
+                        alt="Una pareja celebra su boda bajo una lluvia de pétalos"
+                        fetchpriority="high"
+                    >
+                    <span>La emoción está en los pequeños instantes.</span>
+                </div>
+            </section>
+            <section id="trabajos" tabindex="-1">
+                <p class="etiqueta">UNA SELECCIÓN DE MOMENTOS</p>
+                <h2>Cada historia, <em>su propia luz.</em></h2>
+                <p class="intro-galeria">
+                    Personas, detalles y emociones. Lo que hace único cada día.
+                </p>
+                <div
+                    class="filtros"
+                    role="group"
+                    aria-label="Filtrar fotografías"
+                    hidden
+                >
+                    <button
+                        type="button"
+                        data-filtro="todas"
+                        aria-pressed="true"
+                    >
+                        Todas
+                    </button>
+                    <button
+                        type="button"
+                        data-filtro="bodas"
+                        aria-pressed="false"
+                    >
+                        Bodas
+                    </button>
+                    <button
+                        type="button"
+                        data-filtro="bautizos"
+                        aria-pressed="false"
+                    >
+                        Bautizos
+                    </button>
+                    <button
+                        type="button"
+                        data-filtro="celebraciones"
+                        aria-pressed="false"
+                    >
+                        Celebraciones
+                    </button>
+                </div>
+                <p id="resumen-galeria" role="status">
+                    6 fotografías de muestra
+                </p>
+                <div class="galeria">
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="bodas"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: El comienzo de todo"
+                        >
+                            <img
+                                src="imagenes/boda.jpg"
+                                width="612"
+                                height="408"
+                                alt="Novios celebrando su boda mientras los invitados lanzan pétalos"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>BODAS</span>
+                            <h3>El comienzo de todo</h3>
+                            <p>La emoción de empezar una nueva historia.</p>
+                        </div>
+                    </article>
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="bodas"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: Solo vosotros"
+                        >
+                            <img
+                                src="imagenes/boda2.jpg"
+                                width="612"
+                                height="408"
+                                alt="Novios de la mano con un ramo de flores al atardecer"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>BODAS</span>
+                            <h3>Solo vosotros</h3>
+                            <p>Un instante de calma entre tanta emoción.</p>
+                        </div>
+                    </article>
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="bautizos"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: Sus primeros recuerdos"
+                        >
+                            <img
+                                src="imagenes/bautizo.jpg"
+                                width="1000"
+                                height="750"
+                                alt="Un bebé con vestido de bautizo sentado en una pequeña silla"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>BAUTIZOS</span>
+                            <h3>Sus primeros recuerdos</h3>
+                            <p>Pequeños gestos que se vuelven enormes.</p>
+                        </div>
+                    </article>
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="bautizos"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: Cerca de los tuyos"
+                        >
+                            <img
+                                src="imagenes/bautizo2.jpg"
+                                width="1600"
+                                height="1068"
+                                alt="Una mujer sostiene a un bebé con vestido de bautizo junto a una vela en una iglesia"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>BAUTIZOS</span>
+                            <h3>Cerca de los tuyos</h3>
+                            <p>La calidez de compartir un día especial.</p>
+                        </div>
+                    </article>
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="celebraciones"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: Un año más juntos"
+                        >
+                            <img
+                                src="imagenes/cumple.webp"
+                                width="600"
+                                height="295"
+                                alt="Amigos celebran un cumpleaños alrededor de una tarta con velas"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>CELEBRACIONES</span>
+                            <h3>Un año más juntos</h3>
+                            <p>Risas, velas y ganas de celebrar.</p>
+                        </div>
+                    </article>
+                    <article
+                        class="tarjeta-foto revelar"
+                        data-categoria="celebraciones"
+                    >
+                        <button
+                            type="button"
+                            class="abrir-foto"
+                            aria-haspopup="dialog"
+                            aria-controls="visor-foto"
+                            aria-label="Ampliar: Días que nos unen"
+                        >
+                            <img
+                                src="imagenes/cumple2.jpg"
+                                width="600"
+                                height="432"
+                                alt="Amigos celebran un cumpleaños entre globos de colores"
+                                loading="lazy"
+                            >
+                        </button>
+                        <div class="texto-tarjeta">
+                            <span>CELEBRACIONES</span>
+                            <h3>Días que nos unen</h3>
+                            <p>Lo mejor de una fiesta son quienes la viven.</p>
+                        </div>
+                    </article>
+                </div>
+                <noscript
+                    ><p>
+                        Activa JavaScript para usar los filtros y ampliar las
+                        fotografías.
+                    </p></noscript
+                >
+            </section>
+            <section class="sobre-mi revelar" id="sobre-mi" tabindex="-1">
+                <div>
+                    <p class="etiqueta">DETRÁS DE LA CÁMARA</p>
+                    <h2>
+                        Una forma de mirar.<br ><em>Una forma de recordar.</em>
+                    </h2>
+                    <span class="firma">Julio.</span>
+                </div>
+                <div>
+                    <p>
+                        Me gusta capturar las emociones y los pequeños detalles
+                        que hacen especial cada celebración. Acompañarte, dejar
+                        que todo suceda y encontrar esas imágenes que cuentan
+                        algo.
+                    </p>
+                    <p>
+                        Desde nuestra primera conversación hasta la selección y
+                        edición de las fotografías, cuido cada parte del
+                        proceso.
+                    </p>
+                    <a class="enlace-texto" href="#contacto"
+                        >Cuéntame qué estás preparando</a
+                    >
+                </div>
+            </section>
+            <section class="contacto revelar" id="contacto" tabindex="-1">
+                <div>
+                    <p class="etiqueta">TU PRÓXIMA HISTORIA</p>
+                    <h2>Hagamos un buen<br ><em>recuerdo.</em></h2>
+                </div>
+                <div>
+                    <p>
+                        Cuéntame el tipo de evento, la fecha y el lugar. Ese
+                        será el punto de partida.
+                    </p>
+                    <p class="nota-demo">
+                        Contacto de demostración. Puedes preparar una consulta;
+                        este boceto todavía no la envía.
+                    </p>
+                    <form
+                        id="formulario-contacto"
+                        aria-labelledby="titulo-formulario"
+                        hidden
+                    >
+                        <h3 id="titulo-formulario">Prepara tu consulta</h3>
+                        <p class="nota-formulario">
+                            Nombre, correo, celebración y lugar son
+                            obligatorios.
+                        </p>
+                        <div class="campos-contacto">
+                            <label
+                                >Tu nombre<input
+                                    type="text"
+                                    name="nombre"
+                                    autocomplete="name"
+                                    maxlength="100"
+                                    required
+                            ></label>
+                            <label
+                                >Tu correo<input
+                                    name="correo"
+                                    type="email"
+                                    autocomplete="email"
+                                    maxlength="254"
+                                    required
+                            ></label>
+                            <label
+                                >Celebración<select name="evento" required>
+                                    <option value="">Elige una opción</option>
+                                    <option>Boda</option>
+                                    <option>Bautizo</option>
+                                    <option>Comunión</option>
+                                    <option>Celebración</option>
+                                    <option>Otro evento</option>
+                                </select></label
+                            >
+                            <label
+                                >Fecha prevista (opcional)<input
+                                    name="fecha"
+                                    type="date"
+                            ></label>
+                            <label class="campo-completo"
+                                >Lugar<input
+                                    type="text"
+                                    name="lugar"
+                                    autocomplete="off"
+                                    maxlength="150"
+                                    required
+                            ></label>
+                            <label class="campo-completo"
+                                >¿Algo más? (opcional)<textarea
+                                    name="mensaje"
+                                    rows="3"
+                                    maxlength="700"
+                                ></textarea>
+                            </label>
+                        </div>
+                        <button type="submit" class="boton boton-claro">
+                            Preparar consulta
+                        </button>
+                    </form>
+                    <noscript
+                        ><p class="nota-demo">
+                            Activa JavaScript para probar el formulario.
+                        </p></noscript
+                    >
+                    <p id="aviso-contacto" role="status"></p>
+                    <section
+                        id="resumen-consulta"
+                        aria-labelledby="titulo-consulta"
+                        tabindex="-1"
+                        hidden
+                    >
+                        <h3 id="titulo-consulta">
+                            Tu consulta, lista para revisar
+                        </h3>
+                        <p class="nota-demo">
+                            Borrador de prueba. No se ha enviado ni guardado.
+                        </p>
+                        <pre id="texto-consulta"></pre>
+                        <button type="button" id="copiar-consulta" class="boton boton-claro">Copiar borrador</button>
+                        <p id="estado-copia" role="status"></p>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer class="pie">
+            <a class="marca" href="#inicio" aria-label="Volver al inicio"
+                >Julio<span>.</span><small>FOTOGRAFÍA</small></a
+            >
+            <p>Hecho para recordar.</p>
+            <span>Boceto de prueba · Fotografías de muestra · 2026</span>
+        </footer>
+
+        <dialog
+            id="visor-foto"
+            aria-labelledby="titulo-visor"
+            aria-describedby="descripcion-visor"
+        >
+            <div class="cabecera-visor">
+                <span class="etiqueta" id="categoria-visor"></span>
+                <form method="dialog">
+                    <button type="submit" class="cerrar-visor" aria-label="Cerrar visor">
+                        Cerrar <span aria-hidden="true">×</span>
+                    </button>
+                </form>
+            </div>
+            <figure>
+                <img src="imagenes/boda.jpg" alt="" id="imagen-visor" >
+                <figcaption>
+                    <h2 id="titulo-visor">Fotografía ampliada</h2>
+                    <p id="descripcion-visor"></p>
+                </figcaption>
+            </figure>
+            <div class="controles-visor">
+                <button type="button" id="foto-anterior">Anterior</button
+                ><span id="contador-fotos" role="status"></span
+                ><button type="button" id="foto-siguiente">Siguiente</button>
+            </div>
+            <p class="ayuda-visor">
+                Las flechas del teclado cambian de foto. Escape cierra el visor.
+            </p>
+        </dialog>
+    </body>
+</html>
