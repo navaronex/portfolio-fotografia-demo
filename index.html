@@ -52,10 +52,11 @@
                         Lo que se vive.<br ><em>Lo que se queda.</em>
                     </h1>
                     <p>
-                        Una mirada cercana a tus días más importantes.<br >Fotografías
+                        Una mirada cercana a tus días más importantes. <br >Fotografías
                         para volver a sentirlos.
                     </p>
                     <a class="boton" href="#trabajos">Descubre las historias</a>
+                    <a class="enlace-portada" href="#edicion">Explora una misma imagen <span aria-hidden="true">↘</span></a>
                 </div>
                 <div class="presentacion-imagen">
                     <img
@@ -66,6 +67,7 @@
                         fetchpriority="high"
                     >
                     <span>La emoción está en los pequeños instantes.</span>
+                    <div class="detalle-portada" aria-hidden="true"><img src="imagenes/boda2.jpg" width="612" height="408" alt="" loading="lazy"><span>Los detalles también cuentan.</span></div>
                 </div>
             </section>
             <section id="trabajos" tabindex="-1">
@@ -270,6 +272,27 @@
                         fotografías.
                     </p></noscript
                 >
+            </section>
+            <section class="edicion revelar" id="edicion" tabindex="-1" aria-labelledby="titulo-edicion">
+                <div class="edicion-texto">
+                    <p class="etiqueta">UNA IMAGEN, DOS ATMÓSFERAS</p>
+                    <h2 id="titulo-edicion">Mueve el límite.<br><em>Cambia la mirada.</em></h2>
+                    <p>La luz y el color cambian cómo sentimos una fotografía. Desliza para explorar este ejemplo.</p>
+                    <p class="nota-comparador">Simulación con un filtro visual. No es un antes y después real del fotógrafo.</p>
+                </div>
+                <div>
+                    <div class="comparador" id="comparador-edicion">
+                        <img src="imagenes/boda2.jpg" width="612" height="408" loading="lazy" alt="Detalle de los novios de la mano al atardecer">
+                        <img class="comparador-capa" src="imagenes/boda2.jpg" width="612" height="408" loading="lazy" alt="">
+                        <span class="rotulo-comparador rotulo-izquierdo">Filtro suave</span>
+                        <span class="rotulo-comparador rotulo-derecho">Muestra original</span>
+                        <span class="division-comparador" aria-hidden="true">↔</span>
+                    </div>
+                    <div class="control-comparador" hidden>
+                        <label for="balance-edicion">Explora con el deslizador o las flechas del teclado</label>
+                        <input type="range" id="balance-edicion" min="0" max="100" value="50" aria-controls="comparador-edicion">
+                    </div>
+                </div>
             </section>
             <section class="sobre-mi revelar" id="sobre-mi" tabindex="-1">
                 <div>

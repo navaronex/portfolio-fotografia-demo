@@ -263,3 +263,15 @@ function ajustarAnimaciones() {
 }
 movimientoReducido.addEventListener("change", ajustarAnimaciones);
 ajustarAnimaciones();
+
+// 7. Comparador: el rango controla cuánto ocupa el filtro, sin modificar la foto.
+const balanceEdicion = document.querySelector("#balance-edicion");
+const comparadorEdicion = document.querySelector("#comparador-edicion");
+function actualizarComparador() {
+    const porcentaje = balanceEdicion.value;
+    comparadorEdicion.style.setProperty("--corte", `${porcentaje}%`);
+    balanceEdicion.setAttribute("aria-valuetext", `${porcentaje} % con filtro suave`);
+}
+balanceEdicion.addEventListener("input", actualizarComparador);
+actualizarComparador();
+document.querySelector(".control-comparador").hidden = false;

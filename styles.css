@@ -15,6 +15,9 @@
 html {
     scroll-padding-top: 110px;
 }
+section[id] {
+    scroll-margin-top: 110px;
+}
 body {
     margin: 0;
     background: var(--fondo);
@@ -670,4 +673,99 @@ section > div > .etiqueta {
     .campos-contacto {
         grid-template-columns: 1fr;
     }
+}
+
+/* Dirección visual: portada editorial y fotografías con composiciones distintas. */
+:root {
+    --acento: #e3e9a6;
+}
+.presentacion {
+    position: relative;
+    min-height: 720px;
+    gap: 45px;
+    background: var(--tinta);
+    color: var(--fondo);
+    overflow: hidden;
+}
+.presentacion::before {
+    content: "01";
+    position: absolute;
+    left: -20px;
+    bottom: -110px;
+    font: 360px/1 Georgia, serif;
+    color: rgb(255 255 255 / 4%);
+    pointer-events: none;
+}
+.presentacion-texto { position: relative; z-index: 1; }
+.presentacion h1 { font-size: clamp(46px, 5.7vw, 76px); }
+.presentacion h1 em { color: var(--acento); }
+.presentacion .etiqueta { color: var(--acento); }
+.presentacion-texto > p:not(.etiqueta) { color: #dde4d7; }
+.presentacion .boton { background: var(--acento); color: var(--tinta); border-color: var(--acento); }
+.presentacion .boton:hover { background: #f0f4ca; }
+.presentacion :is(a, button):focus-visible { outline-color: var(--acento); }
+.enlace-portada { margin-top: 24px; font-size: 13px; border-bottom: 1px solid #8b9c85; padding-bottom: 6px; }
+.enlace-portada span { margin-left: 15px; }
+.presentacion-imagen { overflow: visible; min-height: 540px; margin: 15px 0 30px; }
+.presentacion-imagen > img { border-radius: 180px 180px 4px 4px; }
+.presentacion-imagen::after { border-radius: 0 0 4px 4px; }
+.presentacion-imagen > span { right: 80px; bottom: 25px; }
+.detalle-portada { position: absolute; right: -20px; top: 52%; width: 160px; padding: 8px; background: #f7f8f4; color: var(--tinta); transform: rotate(8deg); z-index: 2; box-shadow: 0 18px 35px rgb(0 0 0 / 18%); }
+.detalle-portada img { position: static; width: 100%; height: 110px; object-fit: cover; }
+.detalle-portada span { display: block; font: italic 13px/1.4 Georgia,serif; padding-top: 9px; }
+.galeria { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 65px 50px; align-items: start; }
+.galeria img { height: auto; aspect-ratio: 4 / 3; }
+.tarjeta-foto:nth-child(2n) { margin-top: 70px; }
+.tarjeta-foto:nth-child(3n) img { aspect-ratio: 1 / 1; }
+.abrir-foto { position: relative; border-radius: 3px; }
+.abrir-foto::after { content: "EXPLORAR ↗"; position: absolute; right: 15px; bottom: 15px; padding: 9px 14px; color: var(--tinta); background: var(--acento); font-size: 10px; letter-spacing: 1px; }
+.texto-tarjeta h3 { font-size: 30px; }
+.filtros button { padding: 11px 16px; margin: 0 0 12px; border: 1px solid var(--linea); border-radius: 24px; }
+.filtros button[aria-pressed="true"] { color: var(--fondo); background: var(--tinta); }
+.filtros { border: 0; gap: 10px; }
+.edicion { display: grid; grid-template-columns: .85fr 1.15fr; gap: 7%; background: #edeedf; align-items: center; }
+.edicion-texto > p:not(.etiqueta) { margin-top: 25px; color: var(--secundario); }
+.edicion-texto .nota-comparador { font-size: 12px; }
+.comparador { --corte: 50%; position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: var(--tinta); }
+.comparador > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.comparador-capa { filter: saturate(.4) brightness(1.14); clip-path: inset(0 calc(100% - var(--corte)) 0 0); }
+.rotulo-comparador { position: absolute; top: 15px; padding: 7px 10px; background: rgb(20 32 24 / 85%); color: white; font-size: 11px; }
+.rotulo-izquierdo { left: 12px; }
+.rotulo-derecho { right: 12px; }
+.division-comparador { position: absolute; top: 0; bottom: 0; left: var(--corte); width: 2px; background: white; display: flex; align-items: center; justify-content: center; color: var(--tinta); font-size: 28px; text-shadow: 0 0 4px white; pointer-events: none; }
+.control-comparador { margin-top: 18px; }
+.control-comparador label { display: block; font-size: 12px; color: var(--secundario); }
+.control-comparador input { width: 100%; height: 44px; accent-color: var(--tinta); cursor: ew-resize; }
+.sobre-mi { border-top: 1px solid var(--linea); }
+.firma { color: #5e714d; }
+@media (max-width: 1000px) {
+    .presentacion { gap: 30px; min-height: 650px; }
+    .presentacion h1 { font-size: 54px; }
+    .presentacion-imagen { min-height: 490px; }
+    .detalle-portada { width: 130px; }
+    .galeria { gap: 45px 30px; }
+    .edicion { grid-template-columns: 1fr; gap: 35px; }
+}
+@media (max-width: 700px) {
+    .presentacion { gap: 15px; padding-top: 35px; }
+    .presentacion h1 { font-size: clamp(42px, 10vw, 64px); }
+    .presentacion-imagen { min-height: 430px; margin: 15px 15px 30px 0; }
+    .detalle-portada { top: 55%; right: -15px; width: 125px; }
+    .detalle-portada img { height: 85px; }
+    .presentacion-imagen > span { right: 40px; }
+    .galeria { grid-template-columns: 1fr; gap: 40px; }
+    .tarjeta-foto:nth-child(2n) { margin-top: 0; }
+    .tarjeta-foto:nth-child(2n) .abrir-foto { width: 90%; margin-left: auto; }
+    .texto-tarjeta h3 { font-size: 28px; }
+    .rotulo-comparador { font-size: 10px; padding: 6px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .presentacion-texto { animation: entrada-portada 850ms ease both; }
+    .presentacion-imagen > img { animation: entrada-imagen 1000ms ease both; }
+    .detalle-portada { animation: entrada-detalle 1200ms ease both; }
+    .abrir-foto::after { transition: transform 250ms ease, background-color 250ms ease; }
+    .abrir-foto:hover::after { transform: translateY(-4px); background: #f0f4ca; }
+    @keyframes entrada-portada { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: none; } }
+    @keyframes entrada-imagen { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: none; } }
+    @keyframes entrada-detalle { from { opacity: 0; transform: rotate(0) translateY(20px); } to { opacity: 1; transform: rotate(8deg); } }
 }
